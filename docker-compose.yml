@@ -1,0 +1,42 @@
+version: '3.8'
+
+networks:
+    decalogue-network:
+
+services:
+    # server:
+    #     container_name: decalogueserver
+    #     depends_on:
+    #         - db
+    #     build:
+    #         context: .
+    #         dockerfile: ./Dockerfile
+    #         target: development
+    #     command: npm run start:debug
+    #     ports:
+    #         - 3001:3001
+    #         - 9230:9230
+    #     networks:
+    #         default:
+    #         decalogue-network:
+    #     volumes:
+    #         - .:/usr/src/app
+    #         - /usr/src/app/node_modules
+    #     restart: unless-stopped
+    #     env_file:
+    #         - .env
+
+    db:
+        image: mongo:4.2.0
+        container_name: decaloguedb
+        networks:
+            default:
+            decalogue-network:
+        volumes:
+            - mongo-decalogue:/data/db
+        ports:
+            - 27017:27017
+        restart: unless-stopped
+
+volumes:
+    mongo-decalogue:
