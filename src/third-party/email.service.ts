@@ -14,7 +14,7 @@ export class ThirdPartyEmailService {
       userInfo.email,
       '', //templateToUse.body
       data,
-      'Payment', //templateToUse.subject,
+      'someSubject', //templateToUse.subject,
     );
   }
   selectTemplate(type: string) {
@@ -23,7 +23,6 @@ export class ThirdPartyEmailService {
         return; //email template here
     }
   }
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async send<T>(to: string, emailTemplate: string, data: T, subject: string) {
     const dataWHostInfo: any = { ...data, ...this.host };
 
@@ -39,6 +38,6 @@ export class ThirdPartyEmailService {
       subject: interpolatedSubject,
       html: result,
     };
-    console.log(msg);
+    console.log('email sent with the followng message: ', msg);
   }
 }

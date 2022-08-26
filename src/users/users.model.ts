@@ -5,10 +5,10 @@ import { UserRole } from './user.interfaces';
 export const USER_MODEL = 'AuthUsers';
 
 export interface UserModel {
-  _id: String;
-  name: String;
-  fullname: String;
-  email: String;
+  _id: string;
+  name: string;
+  fullname: string;
+  email: string;
   dob: Date;
   password: string;
   createdAt: string;
@@ -38,7 +38,7 @@ export const UserSchema = new mongoose.Schema(
     roles: {
       type: [String],
       enum: Object.values(UserRole),
-      default: [],
+      default: [UserRole.DEFAULT],
     },
   },
   { timestamps: true, versionKey: false },

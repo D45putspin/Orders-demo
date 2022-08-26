@@ -6,6 +6,8 @@ import { UserModel, USER_MODEL } from './users.model';
 import { ThirdPartyEmailService } from 'src/third-party/email.service';
 
 import * as bcrypt from 'bcrypt';
+import { UserRole } from './user.interfaces';
+import { AUTH_CONSTANTS } from 'src/auth/config/constants';
 @Injectable()
 export class UsersService {
   constructor(
@@ -45,5 +47,26 @@ export class UsersService {
 
   findOne(email: string): Promise<UserModel> {
     return this.userModel.findOne({ email }).exec();
+  }
+  async checkIfAdminExists() {
+    const exists = await this.userModel.findOne({ email: 'ADM@ADM.com' });
+
+    if (!exists) {
+      const hashedPassword = await bcrypt.hash(
+        'password123$',
+        AUTH_CONSTANTS.saltRounds,
+      );
+      const newAdmin = new this.userModel({
+        fullname: 'ADMIN',
+        email: 'ADM@ADM.com',
+        dob: '2000-01-30T00:00:00.000Z',
+        password: hashedPassword,
+      });
+
+      await newAdmin.save();
+      console.log(
+        'created new Admin! email: "ADM@ADM.com" password: "password123$" ',
+      );
+    }
   }
 }

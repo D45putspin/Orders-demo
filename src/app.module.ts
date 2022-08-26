@@ -5,6 +5,7 @@ import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UsersModule } from 'src/users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { GeneralModule } from './general/general.module';
 console.log(
   'DB Connection: ',
   process.env.DB_CONNECTION || 'mongodb://localhost:27017/mozantechDatabase',
@@ -12,13 +13,14 @@ console.log(
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    MongooseModule.forRoot(
-      process.env.DB_CONNECTION ||
-        'mongodb://localhost:27017/decalogueserverdb',
-      { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true },
-    ),
+    MongooseModule.forRootAsync({
+      useFactory: () => ({
+        uri: 'mongodb://localhost:27017/mozantechDB',
+      }),
+    }),
     UsersModule,
     AuthModule,
+    GeneralModule,
   ],
   controllers: [],
   providers: [
