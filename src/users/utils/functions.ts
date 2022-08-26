@@ -4,7 +4,7 @@ import { UserModel, UserRaw } from '../users.model';
 
 export const removeUserSensitiveData = (user: UserModel) => {
   const raw = user as unknown as UserRaw;
-  const { password, createdAt, updatedAt, roles, ...userInfo } = raw;
+  const { password, createdAt, updatedAt, ...userInfo } = raw;
 
   return userInfo;
 };

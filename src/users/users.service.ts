@@ -61,6 +61,7 @@ export class UsersService {
         email: 'ADM@ADM.com',
         dob: '2000-01-30T00:00:00.000Z',
         password: hashedPassword,
+        roles: ['ADMIN'],
       });
 
       await newAdmin.save();
