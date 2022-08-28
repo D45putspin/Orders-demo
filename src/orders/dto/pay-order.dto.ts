@@ -4,5 +4,6 @@ export class PayOrderDto {
   @IsNotEmpty({
     message: 'AUTH.THERE_ARE_EMPTY_FIELDS',
   })
-  id: [string];
+  orderId: string;
+  paymentMethodId: string;
 }

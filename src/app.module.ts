@@ -9,7 +9,7 @@ import { GeneralModule } from './general/general.module';
 import { ProductsModule } from './products/products.module';
 import { OrdersModule } from './orders/orders.module';
 import { PaymentTypesModule } from './payment-types/payment-types.module';
-import { PaymentsModule } from './payments/payments.module';
+
 console.log(
   'DB Connection: ',
   process.env.DB_CONNECTION || 'mongodb://localhost:27017/mozantechDatabase',
@@ -28,7 +28,6 @@ console.log(
     ProductsModule,
     OrdersModule,
     PaymentTypesModule,
-    PaymentsModule,
   ],
   controllers: [],
   providers: [

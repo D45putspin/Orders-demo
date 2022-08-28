@@ -25,7 +25,7 @@ export class OrdersController {
     return this.ordersService.create(createOrderDto, user);
   }
   @Post('pay')
-  pay(@Body() payOrderDto: PayOrderDto) {
-    return this.ordersService.payOrder();
+  pay(@Body() payOrderDto: PayOrderDto, @CurrentUser() user: UserModel) {
+    return this.ordersService.payOrder(payOrderDto, user);
   }
 }

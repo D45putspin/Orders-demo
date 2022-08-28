@@ -12,7 +12,11 @@ export const PaymentTypesSchema = new mongoose.Schema(
       unique: true,
       index: true,
     },
-    action: { type: actionTypes, default: actionTypes.DISCOUNT },
+    action: {
+      type: String,
+      enum: actionTypes,
+      default: 'user',
+    },
   },
   { timestamps: true, versionKey: false },
 );
