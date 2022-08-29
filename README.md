@@ -31,8 +31,8 @@ $ npm run start:dev
 
 ## App Flow
 
-```js
-# Create account & log
+
+### Create account & log
 [POST]
 
 uri: localhost:3001/auth/signup
@@ -45,7 +45,7 @@ body:
 }
 response: AuthToken,RefreshToken
 
-# Login
+### Login
 [POST]
 
 uri: localhost:3001/auth/login
@@ -56,7 +56,7 @@ body:
 }
 response: AuthToken,RefreshToken
 
-# Create Product 
+### Create Product 
 [POST]
 
 uri: localhost:3001/products/create
@@ -74,7 +74,7 @@ response:
     "updatedAt":  String
 }
 
-# Get Products ( With pagination!)
+### Get Products ( With pagination!)
 [GET]
 
 uri: localhost:3001/products/{page}/{itemsPerPage} // ex for the first page with only 3 products : localhost:3001/products/1/3 
@@ -97,7 +97,7 @@ response:
    
 ]
 
-# Create Order
+### Create Order
 [POST]
 
 uri: localhost:3001/orders/create
@@ -118,7 +118,7 @@ response:
     "createdAt": String,
     "updatedAt": String
 }
-# Get  Orders ( With pagination!)
+### Get  Orders ( With pagination!)
 [GET]
 
 uri: localhost:3001/orders/{page}/{itemsPerPage} // ex for the first page with only 3 products : localhost:3001/orders/1/3 
@@ -149,7 +149,7 @@ response:
     }
 ]
 
-# Create Payment Method
+### Create Payment Method
 [POST]
 
 uri: localhost:3001/payment-types/create
@@ -167,7 +167,7 @@ response:
     "updatedAt": String
 }
 
-# Get Payment Methods ( With pagination!)
+### Get Payment Methods ( With pagination!)
 [GET]
 
 uri: localhost:3001/payment-types/{page}/{itemsPerPage} // ex for the first page with only 3 products : localhost:3001/payment-types/1/3 
@@ -187,7 +187,7 @@ response:
     "updatedAt": String
     }
 ]
-# payOrder
+### payOrder
 [POST]
 
 uri:localhost:3001/orders/pay
