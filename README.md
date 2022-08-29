@@ -34,7 +34,7 @@ $ npm run start:dev
 
 ### Create account & log
 [POST]
-
+```js
 uri: localhost:3001/auth/signup
 body: 
 {
@@ -44,10 +44,10 @@ body:
     "password": String
 }
 response: AuthToken,RefreshToken
-
+```
 ### Login
 [POST]
-
+```js
 uri: localhost:3001/auth/login
 body:
 {
@@ -55,10 +55,10 @@ body:
 "password": String(it has to be strong)
 }
 response: AuthToken,RefreshToken
-
+```
 ### Create Product 
 [POST]
-
+```js
 uri: localhost:3001/products/create
 body:
 {
@@ -73,10 +73,10 @@ response:
     "createdAt":  String,
     "updatedAt":  String
 }
-
+```
 ### Get Products ( With pagination!)
 [GET]
-
+```js
 uri: localhost:3001/products/{page}/{itemsPerPage} // ex for the first page with only 3 products : localhost:3001/products/1/3 
 response:
 [
@@ -96,10 +96,10 @@ response:
     },
    
 ]
-
+```
 ### Create Order
 [POST]
-
+```js
 uri: localhost:3001/orders/create
 body:
 {
@@ -118,9 +118,10 @@ response:
     "createdAt": String,
     "updatedAt": String
 }
+```
 ### Get  Orders ( With pagination!)
 [GET]
-
+```js
 uri: localhost:3001/orders/{page}/{itemsPerPage} // ex for the first page with only 3 products : localhost:3001/orders/1/3 
 response:
 [
@@ -148,10 +149,10 @@ response:
     "updatedAt": String
     }
 ]
-
+```
 ### Create Payment Method
 [POST]
-
+```js
 uri: localhost:3001/payment-types/create
 body:
 {
@@ -166,10 +167,10 @@ response:
     "createdAt": String,
     "updatedAt": String
 }
-
+```
 ### Get Payment Methods ( With pagination!)
 [GET]
-
+```js
 uri: localhost:3001/payment-types/{page}/{itemsPerPage} // ex for the first page with only 3 products : localhost:3001/payment-types/1/3 
 response:
 [
@@ -187,9 +188,10 @@ response:
     "updatedAt": String
     }
 ]
+```
 ### payOrder
 [POST]
-
+```js
 uri:localhost:3001/orders/pay
 body:
 {
@@ -204,7 +206,9 @@ response:
 ```
 
  
+### Card Creation Enum description
 
+Whenever you create a card you have to send a action, this action can be "setDiscount" or "sendMail" on set discount when paying the order value gets 10% discount on send Mail, a "email is sent" to the user 
 
 - Author - [Tiago Moreira](https://github.com/D45putspin)
 
