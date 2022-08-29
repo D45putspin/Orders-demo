@@ -210,6 +210,10 @@ response:
 
 Whenever you create a card you have to send a action, this action can be "setDiscount" or "sendMail" on set discount when paying the order value gets 10% discount on send Mail, a "email is sent" to the user 
 
+## Info
+
+Admin User is created when app starts if theres no admin in DB
+
 - Author - [Tiago Moreira](https://github.com/D45putspin)
 
 
