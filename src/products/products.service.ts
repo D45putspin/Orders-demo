@@ -21,7 +21,7 @@ export class ProductsService {
     return await this.productModel
       .find()
       .skip(skip)
-      .limit(limit ? limit : 0);
+      .limit(limit ? limit - 1 : 0);
   }
   async findById(id: string) {
     return await this.productModel.findById(id);

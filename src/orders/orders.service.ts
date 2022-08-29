@@ -9,6 +9,7 @@ import * as _ from 'lodash';
 import { PayOrderDto } from './dto/pay-order.dto';
 import { PaymentTypesService } from 'src/payment-types/payment-types.service';
 import { actionTypes } from 'src/payment-types/payment-types.model';
+import { functions } from 'src/common/functions/entity.utils';
 @Injectable()
 export class OrdersService {
   constructor(
@@ -78,5 +79,13 @@ export class OrdersService {
         price: paymentHelper.order?.price,
       }));
     return paymentHelper.success ? { success: true } : { success: false };
+  }
+  async findAll(step: number, limit: number) {
+    const skip =
+      step && limit ? await functions.skipCalculator(step, limit) : 0;
+    return await this.orderModel
+      .find()
+      .skip(skip)
+      .limit(limit ? limit - 1 : 0);
   }
 }

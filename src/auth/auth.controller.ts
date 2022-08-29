@@ -51,6 +51,7 @@ export class AuthController {
 
     return await this.authService.login(user, true);
   }
+
   @Public()
   @UseGuards(AuthGuard('local'))
   @Post('login')

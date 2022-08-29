@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { userInfo } from 'os';
 import { async } from 'rxjs';
+import { functions } from 'src/common/functions/entity.utils';
 import { orderModel, OrdersSchema } from 'src/orders/orders.model';
 import { TYPE_EMAIL } from 'src/shared';
 import { ThirdPartyEmailService } from 'src/third-party/email.service';
@@ -62,5 +63,13 @@ export class PaymentTypesService {
         name: user.fullname,
       },
     );
+  }
+  async findAll(step: number, limit: number) {
+    const skip =
+      step && limit ? await functions.skipCalculator(step, limit) : 0;
+    return await this.paymentTypeModel
+      .find()
+      .skip(skip)
+      .limit(limit ? limit - 1 : 0);
   }
 }
