@@ -212,7 +212,7 @@ Whenever you create a card you have to send a action, this action can be "setDis
 
 ## Info
 
-Admin User is created when app starts if theres no admin in DB
+Admin User is created when app starts if theres no admin in DB , mail:ADM@ADM.com pass: password123$
 
 - Author - [Tiago Moreira](https://github.com/D45putspin)
 
